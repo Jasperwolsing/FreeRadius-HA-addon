@@ -1,13 +1,19 @@
-FROM ghcr.io/hassio-addons/base:14.3.1
+# Gebruik een basisimage (bijv. Ubuntu) om op voort te bouwen
+FROM ubuntu:20.04
 
-# Install dependencies
-RUN apk add --no-cache freeradius
+# Voer updates uit en installeer FreeRADIUS
+RUN apt-get update && apt-get install -y freeradius
 
-# Copy configuration files
-COPY config/ /etc/freeradius/
+# Kopieer je FreeRADIUS-configuratiebestanden naar de container
+COPY radiusd.conf /etc/freeradius/3.0/
+COPY clients.conf /etc/freeradius/3.0/
+# ... Voeg hier eventuele andere configuratiebestanden toe
 
-# Start script
-COPY run.sh /usr/bin/run.sh
-RUN chmod a+x /usr/bin/run.sh
+# Open poorten die FreeRADIUS nodig heeft (standaard 1812 en 1813)
+EXPOSE 1812/udp 1813/udp
 
-CMD [ "/usr/bin/run.sh" ]
+# Start FreeRADIUS bij het opstarten van de container
+CMD ["freeradius", "-X"]
+
+# Houd de container actief
+ENTRYPOINT ["tail", "-f", "/dev/null"]
