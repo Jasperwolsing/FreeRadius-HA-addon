@@ -16,4 +16,4 @@ ports:
 init: false
 map:
   - share:rw
-image: "ghcr.io/JasperWolsing/freeradius-addon:{arch}"
+image: "ghcr.io/home-assistant/{arch}-addon-example"
