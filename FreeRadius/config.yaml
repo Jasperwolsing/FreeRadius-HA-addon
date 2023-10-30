@@ -21,4 +21,4 @@ options:
   message: "Hello world..."
 schema:
   message: "str?"
-image: ghcr.io/JasperWolsing/grott-beta/{arch}
+image: "ghcr.io/home-assistant/{arch}-addon-example"
