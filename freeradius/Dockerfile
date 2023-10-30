@@ -1,4 +1,4 @@
-FROM ghcr.io/hassio-addons/base-amd64:11.0.2
+FROM ghcr.io/hassio-addons/base:14.3.1
 
 # Install dependencies
 RUN apk add --no-cache freeradius
