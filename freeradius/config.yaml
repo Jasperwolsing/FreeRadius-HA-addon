@@ -16,8 +16,4 @@ ports:
 init: false
 map:
   - share:rw
-options:
-  message: "Hello world...2"
-schema:
-  message: "str?"
-image: "ghcr.io/home-assistant/{arch}-addon-example"
+image: "ghcr.io/JasperWolsing/freeradius-addon:{arch}"
