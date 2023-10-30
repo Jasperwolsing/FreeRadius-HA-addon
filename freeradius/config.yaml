@@ -12,8 +12,8 @@ arch:
   - i386
 startup: application
 ports:
-  - 1812/udp
-  - 1813/udp
+  1812/udp: 1812
+  1813/udp: 1813
 init: false
 map:
   - share:rw
